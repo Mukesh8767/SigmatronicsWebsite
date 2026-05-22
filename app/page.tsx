@@ -2,7 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { 
+  Cpu, 
+  Code, 
+  Rocket, 
+  Brain, 
+  GraduationCap, 
+  Settings, 
+  Cloud, 
+  Zap,
+  ArrowRight
+} from "lucide-react";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -16,44 +28,59 @@ const navItems = [
 
 const verticals = [
   {
-    title: "Sigmatronics Hardware",
-    subtitle: "Advanced Electronics, Embedded Systems, IoT Devices & Smart Industrial Hardware",
-    description: "Designing intelligent, connected, and scalable hardware for modern businesses — from industrial control systems and automation devices to custom embedded products, vending systems, energy systems, and IoT gateways.",
+    title: "Hardware",
+    fullName: "Sigmatronics Hardware",
+    icon: Cpu,
+    subtitle: "Advanced Electronics & Embedded Systems",
+    description: "Designing intelligent, connected hardware — from industrial control systems to custom embedded products.",
+    longDescription: "Our hardware division specializes in multi-layer PCB design, firmware development, and industrial-grade enclosure engineering. We build gateways, sensing nodes, and specialized controllers that operate reliably in harsh industrial environments. Our expertise covers ARM, ESP32, and STM32 architectures with a focus on low-power connectivity.",
     href: "/hardware",
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    color: "bg-blue-50"
+    color: "from-blue-600 to-cyan-500",
   },
   {
-    title: "Sigmatronics Software",
-    subtitle: "Custom Software, IoT Platforms, Websites, Dashboards & Digital Products",
-    description: "Developing modern software platforms, customer-facing portals, operational dashboards, analytics systems, SaaS platforms, and web applications that integrate seamlessly with Sigmatronics hardware or third-party devices.",
+    title: "Software",
+    fullName: "Sigmatronics Software",
+    icon: Code,
+    subtitle: "Custom Platforms & IoT Dashboards",
+    description: "Developing modern software platforms, dashboards, and digital products that integrate seamlessly.",
+    longDescription: "We build scalable SaaS architectures using Next.js, Node.js, and advanced cloud infrastructures. Our software vertical delivers real-time telemetry dashboards, user-facing mobile apps, and robust API layers. We focus on data visualization, device management, and enterprise-grade security protocols for all our digital platforms.",
     href: "/software",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    color: "bg-indigo-50"
+    color: "from-indigo-600 to-purple-500",
   },
   {
-    title: "Sigmatronics Solutions",
-    subtitle: "Complete End-to-End Smart Solutions Across Industries",
-    description: "Delivering fully integrated hardware + software solutions tailored to business use cases such as vending, water automation, industrial IoT, energy monitoring, smart infrastructure, digital queue systems, remote asset control, and more.",
+    title: "Solutions",
+    fullName: "Sigmatronics Solutions",
+    icon: Rocket,
+    subtitle: "Integrated Smart Systems",
+    description: "Delivering fully integrated hardware + software solutions tailored to complex business use cases.",
+    longDescription: "Our solutions team bridges the gap between hardware and software. We deliver turnkey systems for smart vending, water automation, and energy monitoring. This includes field deployment, system integration with existing ERPs, and complete lifecycle support — ensuring your technology investment delivers measurable ROI.",
     href: "/solutions",
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    color: "bg-cyan-50"
+    color: "from-cyan-600 to-blue-500",
   },
   {
-    title: "Sigmatronics Consultancy",
-    subtitle: "Technology Advisory, Product Strategy, Development Partnerships & Execution Support",
-    description: "Helping organizations build and scale technology through expert consultancy in embedded systems, product development, IoT, automation, web platforms, software architecture, and partner-led implementation.",
+    title: "Consultancy",
+    fullName: "Sigmatronics Consultancy",
+    icon: Brain,
+    subtitle: "Strategic Advisory & Partnerships",
+    description: "Helping organizations build and scale technology through expert advisory and product strategy.",
+    longDescription: "We provide high-level technology roadmapping for startups and established enterprises. Our consultants help with product feasibility, architecture selection, and scaling strategies. We also facilitate partner-led implementation, connecting you with specialized domain experts and manufacturing partners to accelerate your time-to-market.",
     href: "/consultancy",
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    color: "bg-slate-50"
+    color: "from-slate-700 to-slate-900",
   },
   {
-    title: "Sigmatronics Learnings",
-    subtitle: "Internships, Industry Exposure, Applied Learning & Innovation Development",
-    description: "Empowering students, interns, fresh innovators, and aspiring professionals with practical exposure to embedded systems, IoT, software development, product engineering, automation, and modern technology ecosystems.",
+    title: "Learnings",
+    fullName: "Sigmatronics Learnings",
+    icon: GraduationCap,
+    subtitle: "Innovation & Applied Learning",
+    description: "Empowering innovators with practical exposure to embedded systems, IoT, and modern tech.",
+    longDescription: "Our learning vertical is dedicated to closing the gap between academia and industry. We offer hands-on internship programs, workshops, and innovation labs focused on real-world engineering challenges. Participants work on live projects, gaining skills in firmware, full-stack development, and product design under the guidance of industry veterans.",
     href: "/learnings",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    color: "bg-orange-50"
+    color: "from-orange-600 to-red-500",
   }
 ];
 
@@ -75,6 +102,7 @@ const heroImages = [
 ];
 
 export default function Home() {
+  const [expandedVertical, setExpandedVertical] = useState<string | null>(null);
 
   return (
     <div className="relative overflow-hidden bg-white text-slate-900">
@@ -198,12 +226,13 @@ export default function Home() {
                   </div>
                   <div className="grid gap-2">
                     {[
-                      "Device Engineering",
-                      "Cloud Platforms",
-                      "Automation",
+                      { label: "Device Engineering", icon: Cpu },
+                      { label: "Cloud Platforms", icon: Cloud },
+                      { label: "Automation", icon: Settings },
                     ].map((item) => (
-                      <span key={item} className="inline-flex rounded-full border border-slate-200 bg-slate-100 px-3 py-2 text-xs font-medium text-slate-700">
-                        {item}
+                      <span key={item.label} className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-100 px-3 py-2 text-xs font-medium text-slate-700">
+                        <item.icon size={14} className="text-cyan-600" />
+                        {item.label}
                       </span>
                     ))}
                   </div>
@@ -260,57 +289,90 @@ export default function Home() {
           </motion.div>
         </section>
 
-        {/* Our Technology Verticals Section */}
-        <section className="mt-32">
-          <div className="text-center">
-            <h2 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Our Technology Verticals</h2>
-            <p className="mx-auto mt-6 max-w-3xl text-lg text-slate-600">
-              Sigmatronics is structured into specialized verticals so clients can clearly understand our expertise and engage with the right team for their business needs. Each vertical is designed to work independently or as part of an integrated end-to-end solution.
+        {/* Our Technology Verticals Section - Auto-Scrolling Ticker */}
+        <section className="mt-32 overflow-hidden py-10 bg-slate-50/50">
+          <div className="text-center px-4 mb-16">
+            <h2 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">Technology Verticals</h2>
+            <p className="mx-auto mt-4 max-w-xl text-slate-600">
+              A high-impact ecosystem of specialized engineering and digital domains.
             </p>
           </div>
 
-          <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {verticals.map((vertical, index) => (
-              <motion.div
-                key={vertical.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
-                className={`group flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all hover:shadow-xl ${index >= 3 ? 'lg:col-span-1' : ''}`}
-              >
-                <div className="relative h-64 overflow-hidden">
-                  <Image
-                    src={vertical.image}
-                    alt={vertical.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                  <div className="absolute bottom-4 left-6 right-6">
-                    <h3 className="text-xl font-bold text-white">{vertical.title}</h3>
+          <div className="relative flex overflow-hidden pause-on-hover">
+            {/* Ticker Container */}
+            <div
+              className="flex gap-6 whitespace-nowrap py-4 px-3 animate-marquee"
+              style={{ width: "max-content" }}
+            >
+              {/* Duplicate cards for infinite loop */}
+              {[...verticals, ...verticals, ...verticals].map((vertical, index) => (
+                <div
+                  key={`${vertical.title}-${index}`}
+                  onClick={() => setExpandedVertical(expandedVertical === vertical.title ? null : vertical.title)}
+                  className={`relative w-[260px] flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl border transition-all duration-500 ${
+                    expandedVertical === vertical.title 
+                    ? 'ring-2 ring-cyan-500 border-cyan-500 shadow-2xl scale-105 bg-white z-20' 
+                    : 'border-slate-200 bg-white shadow-sm hover:border-cyan-300 hover:shadow-md'
+                  }`}
+                >
+                  <div className="relative h-32 overflow-hidden">
+                    <Image
+                      src={vertical.image}
+                      alt={vertical.fullName}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-slate-900/40" />
+                    <div className="absolute top-3 left-4">
+                      <div className={`flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br ${vertical.color} text-white shadow-md`}>
+                        <vertical.icon size={16} />
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4">
+                    <h3 className="text-lg font-bold text-slate-900">{vertical.fullName}</h3>
+                    <p className="mt-1 text-[10px] font-bold uppercase tracking-widest text-cyan-600 truncate">{vertical.subtitle}</p>
+                    <p className="mt-2 text-xs leading-relaxed text-slate-500 whitespace-normal line-clamp-2">
+                      {vertical.description}
+                    </p>
+                    
+                    <div className="mt-4 flex items-center justify-between border-t border-slate-50 pt-3">
+                      <span className="text-[10px] font-bold text-slate-400">Click to expand</span>
+                      <Link
+                        href={vertical.href}
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-[10px] font-bold text-cyan-600 hover:underline"
+                      >
+                        Visit Page →
+                      </Link>
+                    </div>
+
+                    <AnimatePresence>
+                      {expandedVertical === vertical.title && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="mt-3 border-t border-slate-100 pt-3">
+                            <p className="text-[11px] leading-relaxed text-slate-600 whitespace-normal">
+                              {vertical.longDescription}
+                            </p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </div>
-                <div className="flex flex-1 flex-col p-8">
-                  <p className="text-sm font-bold uppercase tracking-wider text-cyan-600">{vertical.subtitle}</p>
-                  <p className="mt-4 text-base leading-relaxed text-slate-600">
-                    {vertical.description}
-                  </p>
-                  <div className="mt-auto pt-8">
-                    <Link
-                      href={vertical.href}
-                      className="inline-flex items-center text-sm font-bold text-slate-900 group-hover:text-cyan-700"
-                    >
-                      Explore {vertical.title.split(' ').pop()}
-                      <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m9 5 7 7-7 7" />
-                      </svg>
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+              ))}
+            </div>
+
+            {/* Gradient Overlays for smooth edges */}
+            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
           </div>
         </section>
 

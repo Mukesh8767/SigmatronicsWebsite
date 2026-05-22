@@ -3,38 +3,49 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { 
+  Cpu, 
+  Code, 
+  Radio, 
+  Globe, 
+  Handshake, 
+  Phone, 
+  ClipboardList, 
+  Map, 
+  Rocket 
+} from "lucide-react";
 
 const consultancyAreas = [
   {
-    icon: "🔬",
+    icon: Cpu,
     title: "Hardware Consultancy & Development",
     color: "from-blue-50 to-cyan-50 border-blue-100",
     accent: "bg-blue-100 text-blue-700",
     items: ["Product feasibility assessment", "Architecture planning", "PCB and embedded system advisory", "Component selection & BOM optimization", "Industrialization planning", "Prototype-to-production support", "Communication module integration", "Certification-readiness guidance"],
   },
   {
-    icon: "💻",
+    icon: Code,
     title: "Software Consultancy & Development",
     color: "from-sky-50 to-blue-50 border-sky-100",
     accent: "bg-sky-100 text-sky-700",
     items: ["Product requirement definition", "Platform architecture planning", "Dashboard and admin panel design", "API and cloud system design", "SaaS product structuring", "Data flow and telemetry design", "Web platform development support", "MVP and scale roadmap planning"],
   },
   {
-    icon: "📡",
+    icon: Radio,
     title: "IoT & Automation Consultancy",
     color: "from-cyan-50 to-teal-50 border-cyan-100",
     accent: "bg-cyan-100 text-cyan-700",
     items: ["Connected device architecture", "Protocol selection", "Gateway and cloud design", "Data pipeline planning", "Device management strategies", "Edge vs cloud processing decisions", "Fleet deployment readiness", "Security and reliability planning"],
   },
   {
-    icon: "🌐",
+    icon: Globe,
     title: "Website & Digital Consultancy",
     color: "from-orange-50 to-amber-50 border-orange-100",
     accent: "bg-orange-100 text-orange-700",
     items: ["Corporate websites", "Startup websites", "Brand and digital identity systems", "Lead generation landing pages", "Publishing and content platforms", "Portal design and UX structuring", "Conversion-focused business sites"],
   },
   {
-    icon: "🤝",
+    icon: Handshake,
     title: "Partner-Led Specialized Execution",
     color: "from-slate-50 to-blue-50 border-slate-100",
     accent: "bg-slate-100 text-slate-700",
@@ -43,10 +54,10 @@ const consultancyAreas = [
 ];
 
 const engagementSteps = [
-  { step: "01", icon: "💬", title: "Discovery Call", desc: "We understand your challenge, goals, and technology context." },
-  { step: "02", icon: "📋", title: "Assessment", desc: "We assess your current state and define the right architecture." },
-  { step: "03", icon: "🗺️", title: "Roadmap", desc: "We build a clear, actionable technology roadmap and strategy." },
-  { step: "04", icon: "🚀", title: "Execution", desc: "We support or lead implementation — directly or through partners." },
+  { step: "01", icon: Phone, title: "Discovery Call", desc: "We understand your challenge, goals, and technology context." },
+  { step: "02", icon: ClipboardList, title: "Assessment", desc: "We assess your current state and define the right architecture." },
+  { step: "03", icon: Map, title: "Roadmap", desc: "We build a clear, actionable technology roadmap and strategy." },
+  { step: "04", icon: Rocket, title: "Execution", desc: "We support or lead implementation — directly or through partners." },
 ];
 
 const containerVariants = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } };
@@ -116,7 +127,9 @@ export default function ConsultancyPage() {
           <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {consultancyAreas.map(area => (
               <motion.div key={area.title} variants={cardVariants} whileHover={{ y: -6, boxShadow: "0 20px 60px rgba(0,0,0,0.1)" }} className={`group rounded-3xl border bg-gradient-to-br p-8 transition-all ${area.color}`}>
-                <div className={`flex h-14 w-14 items-center justify-center rounded-2xl text-3xl shadow-sm ${area.accent}`}>{area.icon}</div>
+                <div className={`flex h-14 w-14 items-center justify-center rounded-2xl shadow-sm ${area.accent}`}>
+                  <area.icon size={28} strokeWidth={2.5} />
+                </div>
                 <h3 className="mt-6 text-xl font-bold text-slate-900">{area.title}</h3>
                 <ul className="mt-5 space-y-2">
                   {area.items.map(item => (
@@ -140,7 +153,9 @@ export default function ConsultancyPage() {
             {engagementSteps.map((s) => (
               <motion.div key={s.step} variants={cardVariants} whileHover={{ y: -5 }} className="relative rounded-3xl border border-slate-100 bg-white p-8 shadow-sm transition-all">
                 <div className="absolute right-5 top-5 text-5xl font-black text-slate-100">{s.step}</div>
-                <div className="text-4xl">{s.icon}</div>
+                <div className="text-blue-600">
+                  <s.icon size={40} strokeWidth={1.5} />
+                </div>
                 <h3 className="mt-5 text-xl font-bold text-slate-900">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-500">{s.desc}</p>
               </motion.div>

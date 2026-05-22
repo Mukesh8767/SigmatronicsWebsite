@@ -3,11 +3,29 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { 
+  ShoppingCart, 
+  Droplets, 
+  Settings, 
+  Zap, 
+  Waves, 
+  MapPin, 
+  Home, 
+  Factory, 
+  Microscope, 
+  Rocket, 
+  Package, 
+  Building2, 
+  Tag, 
+  Wrench, 
+  Target, 
+  Handshake 
+} from "lucide-react";
 
 const solutions = [
   {
     title: "Smart Vending Solutions",
-    icon: "🏪",
+    icon: ShoppingCart,
     color: "from-blue-600 to-cyan-500",
     bg: "from-blue-50 to-cyan-50",
     border: "border-blue-100",
@@ -17,7 +35,7 @@ const solutions = [
   },
   {
     title: "Automated Water Management",
-    icon: "💧",
+    icon: Droplets,
     color: "from-sky-600 to-blue-500",
     bg: "from-sky-50 to-blue-50",
     border: "border-sky-100",
@@ -27,7 +45,7 @@ const solutions = [
   },
   {
     title: "Industrial IoT & Automation",
-    icon: "⚙️",
+    icon: Settings,
     color: "from-slate-700 to-blue-700",
     bg: "from-slate-50 to-blue-50",
     border: "border-slate-100",
@@ -37,7 +55,7 @@ const solutions = [
   },
   {
     title: "Energy & Utility Solutions",
-    icon: "⚡",
+    icon: Zap,
     color: "from-amber-600 to-orange-500",
     bg: "from-amber-50 to-orange-50",
     border: "border-amber-100",
@@ -47,7 +65,7 @@ const solutions = [
   },
   {
     title: "Smart Dispensing Solutions",
-    icon: "🚰",
+    icon: Waves,
     color: "from-teal-600 to-cyan-500",
     bg: "from-teal-50 to-cyan-50",
     border: "border-teal-100",
@@ -57,7 +75,7 @@ const solutions = [
   },
   {
     title: "Smart Monitoring & Tracking",
-    icon: "📍",
+    icon: MapPin,
     color: "from-rose-600 to-pink-500",
     bg: "from-rose-50 to-pink-50",
     border: "border-rose-100",
@@ -67,7 +85,7 @@ const solutions = [
   },
   {
     title: "Home & Building Automation",
-    icon: "🏠",
+    icon: Home,
     color: "from-emerald-600 to-green-500",
     bg: "from-emerald-50 to-green-50",
     border: "border-emerald-100",
@@ -77,7 +95,7 @@ const solutions = [
   },
   {
     title: "Custom Industry Solutions",
-    icon: "🏭",
+    icon: Factory,
     color: "from-blue-600 to-blue-500",
     bg: "from-blue-50 to-blue-50",
     border: "border-blue-100",
@@ -88,14 +106,14 @@ const solutions = [
 ];
 
 const deliveryModels = [
-  { icon: "🔬", label: "Prototype / MVP" },
-  { icon: "🚀", label: "Pilot Deployment" },
-  { icon: "📦", label: "Small Batch Production" },
-  { icon: "🏢", label: "Enterprise Rollout" },
-  { icon: "🏷️", label: "White-Label Technology" },
-  { icon: "🔧", label: "OEM / ODM Support" },
-  { icon: "🎯", label: "Turnkey Execution" },
-  { icon: "🤝", label: "Partner-Led Deployment" },
+  { icon: Microscope, label: "Prototype / MVP" },
+  { icon: Rocket, label: "Pilot Deployment" },
+  { icon: Package, label: "Small Batch Production" },
+  { icon: Building2, label: "Enterprise Rollout" },
+  { icon: Tag, label: "White-Label Technology" },
+  { icon: Wrench, label: "OEM / ODM Support" },
+  { icon: Target, label: "Turnkey Execution" },
+  { icon: Handshake, label: "Partner-Led Deployment" },
 ];
 
 const containerVariants = {
@@ -199,7 +217,9 @@ export default function SolutionsPage() {
                   <Image src={sol.image} alt={sol.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute bottom-4 left-5 right-5 flex items-center gap-3">
-                    <span className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-r ${sol.color} text-xl shadow-lg`}>{sol.icon}</span>
+                    <span className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-r ${sol.color} text-white shadow-lg`}>
+                      <sol.icon size={20} strokeWidth={2.5} />
+                    </span>
                     <h3 className="text-xl font-bold text-white">{sol.title}</h3>
                   </div>
                 </div>
@@ -232,7 +252,9 @@ export default function SolutionsPage() {
             <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once:true }} className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {deliveryModels.map(m => (
                 <motion.div key={m.label} variants={cardVariants} whileHover={{ y:-5, backgroundColor:"rgba(255,255,255,0.1)" }} className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center backdrop-blur-sm transition-all">
-                  <div className="text-4xl">{m.icon}</div>
+                  <div className="flex justify-center text-blue-300">
+                    <m.icon size={40} strokeWidth={1.5} />
+                  </div>
                   <p className="mt-4 font-bold text-white">{m.label}</p>
                 </motion.div>
               ))}

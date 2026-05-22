@@ -3,20 +3,34 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { 
+  ShoppingCart, 
+  Factory, 
+  Droplets, 
+  Zap, 
+  Building2, 
+  Truck, 
+  Briefcase, 
+  Smartphone, 
+  Cloud, 
+  GraduationCap, 
+  Building, 
+  Rocket 
+} from "lucide-react";
 
 const industries = [
-  { icon: "🏪", title: "Smart Retail & Unattended Commerce", desc: "Connected vending, smart kiosks, QR payment systems, and unattended retail technology.", color: "from-blue-50 to-cyan-50 border-blue-100", accent: "text-blue-700 bg-blue-100" },
-  { icon: "🏭", title: "Industrial Automation & Manufacturing", desc: "Machine monitoring, process automation, telemetry, and production intelligence systems.", color: "from-slate-50 to-blue-50 border-slate-100", accent: "text-slate-700 bg-slate-100" },
-  { icon: "💧", title: "Utilities & Water Management", desc: "Smart tanker filling, distribution automation, valve control, and water metering solutions.", color: "from-sky-50 to-blue-50 border-sky-100", accent: "text-sky-700 bg-sky-100" },
-  { icon: "⚡", title: "Renewable Energy & Power Systems", desc: "Solar monitoring, energy metering, inverter analytics, and smart load management.", color: "from-amber-50 to-orange-50 border-amber-100", accent: "text-amber-700 bg-amber-100" },
-  { icon: "🏙️", title: "Smart Infrastructure & Civic Tech", desc: "Urban automation, municipal deployments, smart campus systems, and civic IoT.", color: "from-cyan-50 to-teal-50 border-cyan-100", accent: "text-cyan-700 bg-cyan-100" },
-  { icon: "🚚", title: "Logistics & Asset Monitoring", desc: "Temperature+GPS tracking, cold-chain compliance, mobile asset telemetry, and fleet monitoring.", color: "from-orange-50 to-amber-50 border-orange-100", accent: "text-orange-700 bg-orange-100" },
-  { icon: "🏢", title: "Commercial & Institutional Operations", desc: "Business process automation, enterprise portals, and smart facility management.", color: "from-blue-50 to-slate-50 border-blue-100", accent: "text-blue-700 bg-blue-100" },
-  { icon: "📱", title: "Consumer Electronics & Smart Devices", desc: "IoT product development, smart home devices, and embedded consumer technology.", color: "from-cyan-50 to-blue-50 border-cyan-100", accent: "text-cyan-700 bg-cyan-100" },
-  { icon: "☁️", title: "Digital Platforms & SaaS", desc: "Cloud-based software products, IoT dashboards, and multi-tenant business platforms.", color: "from-sky-50 to-blue-50 border-sky-100", accent: "text-sky-700 bg-sky-100" },
-  { icon: "🎓", title: "Education & Innovation Ecosystems", desc: "Smart campus tech, learning management, and innovation infrastructure for institutions.", color: "from-orange-50 to-amber-50 border-orange-100", accent: "text-orange-700 bg-orange-100" },
-  { icon: "🏛️", title: "Municipal & Government Tech Initiatives", desc: "Civic automation, utility management, water distribution, and public infrastructure IoT.", color: "from-blue-50 to-cyan-50 border-blue-100", accent: "text-blue-700 bg-blue-100" },
-  { icon: "🚀", title: "Startups & Product Development Ventures", desc: "End-to-end product incubation — hardware design, software, MVP and market launch support.", color: "from-amber-50 to-orange-50 border-amber-100", accent: "text-amber-700 bg-amber-100" },
+  { icon: ShoppingCart, title: "Smart Retail & Unattended Commerce", desc: "Connected vending, smart kiosks, QR payment systems, and unattended retail technology.", color: "from-blue-50 to-cyan-50 border-blue-100", accent: "text-blue-700 bg-blue-100" },
+  { icon: Factory, title: "Industrial Automation & Manufacturing", desc: "Machine monitoring, process automation, telemetry, and production intelligence systems.", color: "from-slate-50 to-blue-50 border-slate-100", accent: "text-slate-700 bg-slate-100" },
+  { icon: Droplets, title: "Utilities & Water Management", desc: "Smart tanker filling, distribution automation, valve control, and water metering solutions.", color: "from-sky-50 to-blue-50 border-sky-100", accent: "text-sky-700 bg-sky-100" },
+  { icon: Zap, title: "Renewable Energy & Power Systems", desc: "Solar monitoring, energy metering, inverter analytics, and smart load management.", color: "from-amber-50 to-orange-50 border-amber-100", accent: "text-amber-700 bg-amber-100" },
+  { icon: Building2, title: "Smart Infrastructure & Civic Tech", desc: "Urban automation, municipal deployments, smart campus systems, and civic IoT.", color: "from-cyan-50 to-teal-50 border-cyan-100", accent: "text-cyan-700 bg-cyan-100" },
+  { icon: Truck, title: "Logistics & Asset Monitoring", desc: "Temperature+GPS tracking, cold-chain compliance, mobile asset telemetry, and fleet monitoring.", color: "from-orange-50 to-amber-50 border-orange-100", accent: "text-orange-700 bg-orange-100" },
+  { icon: Briefcase, title: "Commercial & Institutional Operations", desc: "Business process automation, enterprise portals, and smart facility management.", color: "from-blue-50 to-slate-50 border-blue-100", accent: "text-blue-700 bg-blue-100" },
+  { icon: Smartphone, title: "Consumer Electronics & Smart Devices", desc: "IoT product development, smart home devices, and embedded consumer technology.", color: "from-cyan-50 to-blue-50 border-cyan-100", accent: "text-cyan-700 bg-cyan-100" },
+  { icon: Cloud, title: "Digital Platforms & SaaS", desc: "Cloud-based software products, IoT dashboards, and multi-tenant business platforms.", color: "from-sky-50 to-blue-50 border-sky-100", accent: "text-sky-700 bg-sky-100" },
+  { icon: GraduationCap, title: "Education & Innovation Ecosystems", desc: "Smart campus tech, learning management, and innovation infrastructure for institutions.", color: "from-orange-50 to-amber-50 border-orange-100", accent: "text-orange-700 bg-orange-100" },
+  { icon: Building, title: "Municipal & Government Tech Initiatives", desc: "Civic automation, utility management, water distribution, and public infrastructure IoT.", color: "from-blue-50 to-cyan-50 border-blue-100", accent: "text-blue-700 bg-blue-100" },
+  { icon: Rocket, title: "Startups & Product Development Ventures", desc: "End-to-end product incubation — hardware design, software, MVP and market launch support.", color: "from-amber-50 to-orange-50 border-amber-100", accent: "text-amber-700 bg-amber-100" },
 ];
 
 const containerVariants = { hidden: {}, visible: { transition: { staggerChildren: 0.08 } } };
@@ -91,7 +105,9 @@ export default function IndustriesPage() {
           <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {industries.map(ind => (
               <motion.div key={ind.title} variants={cardVariants} whileHover={{ y: -6, boxShadow: "0 20px 60px rgba(0,0,0,0.1)" }} className={`group relative overflow-hidden rounded-3xl border bg-gradient-to-br p-8 transition-all ${ind.color}`}>
-                <div className={`flex h-14 w-14 items-center justify-center rounded-2xl text-3xl shadow-sm ${ind.accent}`}>{ind.icon}</div>
+                <div className={`flex h-14 w-14 items-center justify-center rounded-2xl shadow-sm ${ind.accent}`}>
+                  <ind.icon size={28} strokeWidth={2.5} />
+                </div>
                 <h3 className="mt-6 text-xl font-bold text-slate-900">{ind.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">{ind.desc}</p>
               </motion.div>

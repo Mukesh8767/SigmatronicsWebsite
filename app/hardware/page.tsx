@@ -1,69 +1,99 @@
 'use client';
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
+import { 
+  Cpu, 
+  Radio, 
+  ShoppingCart, 
+  Droplets, 
+  Zap, 
+  Settings, 
+  Home, 
+  Leaf, 
+  MapPin, 
+  Network, 
+  Lock, 
+  Cloud, 
+  RefreshCw, 
+  Activity, 
+  Share2, 
+  Maximize,
+  Bot,
+  Wrench,
+  Ruler,
+  Car,
+  Snowflake,
+  Sprout,
+  School,
+  Hospital,
+  Monitor,
+  Truck,
+  Factory,
+  ShoppingBag,
+  Star
+} from "lucide-react";
 
 const capabilities = [
   {
     title: "Custom Embedded Hardware Design",
-    icon: "🔬",
+    icon: Cpu,
     color: "from-blue-50 to-cyan-50 border-blue-100",
     accent: "text-blue-700 bg-blue-100",
     items: ["MCU/MPU based product design", "ESP32, STM32, AVR, ARM-based systems", "Custom PCB design (single to multi-layer)", "Sensor integration & signal conditioning", "Communication interface integration", "Industrial-grade control logic", "Power-efficient embedded architecture", "Prototyping to production support"],
   },
   {
     title: "Industrial IoT Hardware",
-    icon: "📡",
+    icon: Radio,
     color: "from-cyan-50 to-teal-50 border-cyan-100",
     accent: "text-cyan-700 bg-cyan-100",
     items: ["Remote telemetry units", "Edge data acquisition devices", "Sensor aggregation controllers", "Machine health monitoring devices", "Asset tracking hardware", "Environment & process monitoring systems", "Multi-protocol industrial gateways", "Secure field-deployable IoT nodes"],
   },
   {
     title: "Smart Vending & Dispensing Hardware",
-    icon: "🏪",
+    icon: ShoppingCart,
     color: "from-blue-50 to-blue-50 border-blue-100",
     accent: "text-blue-700 bg-blue-100",
     items: ["Multi-product vending machine controllers", "QR-based payment integrated vending hardware", "Coin / note acceptor integration", "Motor driver & dispensing logic PCBs", "Touch display UI hardware", "Remote inventory monitoring electronics", "Cloud-connected vending device controllers", "Beverage / liquid dispensing control systems"],
   },
   {
     title: "Water Automation & Utility Hardware",
-    icon: "💧",
+    icon: Droplets,
     color: "from-sky-50 to-blue-50 border-sky-100",
     accent: "text-sky-700 bg-sky-100",
     items: ["Automated water tanker filling systems", "Valve automation controllers", "Flow meter interface boards", "Pump control panels", "Tank level monitoring units", "Remote water distribution monitoring devices", "Borewell / overhead tank automation", "Water metering and billing enablement systems"],
   },
   {
     title: "Solar & Power Electronics",
-    icon: "⚡",
+    icon: Zap,
     color: "from-amber-50 to-yellow-50 border-amber-100",
     accent: "text-amber-700 bg-amber-100",
     items: ["Solar inverter controller systems", "Solar charge controllers", "Battery management support electronics", "Power monitoring modules", "AC/DC conversion monitoring hardware", "Energy analytics interfaces", "Load management controllers", "Hybrid power control systems"],
   },
   {
     title: "Industrial Electrical Automation",
-    icon: "⚙️",
+    icon: Settings,
     color: "from-slate-50 to-gray-50 border-slate-100",
     accent: "text-slate-700 bg-slate-100",
     items: ["PLC-interfacing control panels", "Relay & contactor control logic boards", "Industrial motor control systems", "Machine automation panels", "Safety interlock hardware", "Remote machine control units", "Digital I/O expansion hardware", "Electrical control cabinet electronics"],
   },
   {
     title: "Home & Building Automation",
-    icon: "🏠",
+    icon: Home,
     color: "from-emerald-50 to-green-50 border-emerald-100",
     accent: "text-emerald-700 bg-emerald-100",
     items: ["Smart switch controllers", "Wi-Fi enabled relay systems", "Remote appliance control modules", "Energy monitoring devices", "Security sensor integration hardware", "Smart access control systems", "Occupancy & environmental automation", "Residential IoT control systems"],
   },
   {
     title: "Environmental & Waste Management",
-    icon: "🌿",
+    icon: Leaf,
     color: "from-green-50 to-lime-50 border-green-100",
     accent: "text-green-700 bg-green-100",
     items: ["Incinerator control systems", "Temperature-controlled process hardware", "Safety sensor monitoring systems", "Emission/process monitoring interface units", "Waste handling automation control boards", "Remote operation and diagnostics electronics"],
   },
   {
     title: "Specialized Monitoring Devices",
-    icon: "📍",
+    icon: MapPin,
     color: "from-rose-50 to-pink-50 border-rose-100",
     accent: "text-rose-700 bg-rose-100",
     items: ["Temperature + GPS tracking devices", "BLE-enabled sensor nodes", "GSM-enabled telemetry devices", "Battery-backed remote monitors", "Location + condition monitoring units", "Cold-chain / logistics monitoring hardware", "Portable industrial diagnostic devices"],
@@ -71,14 +101,14 @@ const capabilities = [
 ];
 
 const gatewayFeatures = [
-  { icon: "📶", label: "Multi-Network", desc: "2G / 4G / Wi-Fi connectivity" },
-  { icon: "🔒", label: "Secure Comms", desc: "Encrypted telemetry transmission" },
-  { icon: "☁️", label: "Cloud API", desc: "Full cloud platform compatibility" },
-  { icon: "⚡", label: "Edge Processing", desc: "On-device compute capability" },
-  { icon: "🔄", label: "OTA-Ready", desc: "Over-the-air firmware updates" },
-  { icon: "📊", label: "Real-Time Health", desc: "Device diagnostics & reporting" },
-  { icon: "🔌", label: "Multi-Protocol", desc: "MQTT, Modbus, RS485, CAN" },
-  { icon: "📦", label: "Scalable", desc: "Pilot to enterprise deployment" },
+  { icon: Network, label: "Multi-Network", desc: "2G / 4G / Wi-Fi connectivity" },
+  { icon: Lock, label: "Secure Comms", desc: "Encrypted telemetry transmission" },
+  { icon: Cloud, label: "Cloud API", desc: "Full cloud platform compatibility" },
+  { icon: Zap, label: "Edge Processing", desc: "On-device compute capability" },
+  { icon: RefreshCw, label: "OTA-Ready", desc: "Over-the-air firmware updates" },
+  { icon: Activity, label: "Real-Time Health", desc: "Device diagnostics & reporting" },
+  { icon: Share2, label: "Multi-Protocol", desc: "MQTT, Modbus, RS485, CAN" },
+  { icon: Maximize, label: "Scalable", desc: "Pilot to enterprise deployment" },
 ];
 
 const protocols = ["TCP/IP", "MQTT", "HTTP/HTTPS", "Modbus", "CAN-based integration", "UART / RS232 / RS485", "GPIO / Relay control", "Analog / Digital input", "Sensor bus integrations", "Edge rule execution"];
@@ -86,18 +116,18 @@ const protocols = ["TCP/IP", "MQTT", "HTTP/HTTPS", "Modbus", "CAN-based integrat
 const useCases = ["Smart vending machines", "Utility metering systems", "Water infrastructure automation", "Energy monitoring systems", "Remote asset control", "Industrial process telemetry", "Machine performance monitoring", "Fuel level & genset monitoring", "Smart kiosks & unattended retail", "Environmental compliance systems", "Building automation", "Fleet / mobile asset devices", "Distributed sensor networks"];
 
 const futureCapabilities = [
-  { icon: "🤖", label: "Edge AI-enabled IoT controllers" },
-  { icon: "🔧", label: "Predictive maintenance sensor hubs" },
-  { icon: "📏", label: "Smart utility metering devices" },
-  { icon: "🚗", label: "Connected EV infrastructure controllers" },
-  { icon: "❄️", label: "Cold-chain compliance devices" },
-  { icon: "🌾", label: "Smart agriculture automation nodes" },
-  { icon: "🏫", label: "Smart campus / building control units" },
-  { icon: "🏥", label: "Health & wellness monitoring terminals" },
-  { icon: "🖥️", label: "Digital kiosk hardware systems" },
-  { icon: "🚚", label: "Smart logistics monitoring hardware" },
-  { icon: "🏭", label: "Industrial retrofit kits for legacy machines" },
-  { icon: "🛒", label: "Smart retail shelf & inventory devices" },
+  { icon: Bot, label: "Edge AI-enabled IoT controllers" },
+  { icon: Wrench, label: "Predictive maintenance sensor hubs" },
+  { icon: Ruler, label: "Smart utility metering devices" },
+  { icon: Car, label: "Connected EV infrastructure controllers" },
+  { icon: Snowflake, label: "Cold-chain compliance devices" },
+  { icon: Sprout, label: "Smart agriculture automation nodes" },
+  { icon: School, label: "Smart campus / building control units" },
+  { icon: Hospital, label: "Health & wellness monitoring terminals" },
+  { icon: Monitor, label: "Digital kiosk hardware systems" },
+  { icon: Truck, label: "Smart logistics monitoring hardware" },
+  { icon: Factory, label: "Industrial retrofit kits for legacy machines" },
+  { icon: ShoppingBag, label: "Smart retail shelf & inventory devices" },
 ];
 
 const containerVariants = {
@@ -202,7 +232,9 @@ export default function HardwarePage() {
             {capabilities.map((cap) => (
               <motion.div key={cap.title} variants={cardVariants} whileHover={{ y:-6, boxShadow:"0 20px 60px rgba(0,0,0,0.1)" }} className={`group relative overflow-hidden rounded-3xl border bg-gradient-to-br p-7 transition-all ${cap.color}`}>
                 <div className="flex items-center gap-4">
-                  <span className={`flex h-12 w-12 items-center justify-center rounded-2xl text-2xl shadow-sm ${cap.accent}`}>{cap.icon}</span>
+                  <span className={`flex h-12 w-12 items-center justify-center rounded-2xl shadow-sm ${cap.accent}`}>
+                    <cap.icon size={24} strokeWidth={2.5} />
+                  </span>
                   <h3 className="text-lg font-bold text-slate-900">{cap.title}</h3>
                 </div>
                 <ul className="mt-6 space-y-2.5">
@@ -236,7 +268,9 @@ export default function HardwarePage() {
             <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once:true }} className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {gatewayFeatures.map(f => (
                 <motion.div key={f.label} variants={cardVariants} whileHover={{ y:-4 }} className="rounded-2xl border border-white bg-white p-6 text-center shadow-lg transition-all">
-                  <div className="text-3xl">{f.icon}</div>
+                  <div className="flex justify-center text-blue-600">
+                    <f.icon size={32} strokeWidth={2} />
+                  </div>
                   <p className="mt-3 font-bold text-slate-900">{f.label}</p>
                   <p className="mt-1 text-sm text-slate-500">{f.desc}</p>
                 </motion.div>
@@ -276,7 +310,7 @@ export default function HardwarePage() {
             <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once:true }} className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {futureCapabilities.map(f => (
                 <motion.div key={f.label} variants={cardVariants} whileHover={{ y:-5, backgroundColor:"rgba(255,255,255,0.08)" }} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 backdrop-blur-sm transition-all">
-                  <span className="text-2xl">{f.icon}</span>
+                  <f.icon size={24} className="text-blue-300" strokeWidth={2} />
                   <span className="text-sm font-medium text-slate-200">{f.label}</span>
                 </motion.div>
               ))}

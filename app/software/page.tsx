@@ -3,20 +3,38 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { 
+  Layout, 
+  Gauge, 
+  Settings2, 
+  CreditCard, 
+  Workflow, 
+  Layers, 
+  BarChart3, 
+  Webhook, 
+  Cloud, 
+  ShieldCheck, 
+  ShoppingBag, 
+  Radio,
+  Zap,
+  Lock,
+  Users,
+  RefreshCw
+} from "lucide-react";
 
 const whatWeBuild = [
-  { icon: "🌐", label: "Custom Web Applications", desc: "Modern, scalable web apps built to match your workflows and users." },
-  { icon: "📊", label: "IoT Dashboards", desc: "Real-time device monitoring portals with live data, alerts & control." },
-  { icon: "🔧", label: "Device Management Portals", desc: "Manage fleets of devices, firmware, health, and events from one place." },
-  { icon: "💳", label: "Payment-Enabled Systems", desc: "UPI, QR, card, wallet-integrated transaction platforms." },
-  { icon: "🏢", label: "Enterprise Workflow Systems", desc: "Operational management platforms for complex business processes." },
-  { icon: "📱", label: "SaaS-Style Platforms", desc: "Multi-tenant platforms built for subscription and operational scale." },
-  { icon: "📈", label: "Analytics & Reporting", desc: "Business intelligence dashboards with deep data visibility." },
-  { icon: "🔗", label: "API-First Integrations", desc: "Connect devices, third-party services, and data pipelines." },
-  { icon: "☁️", label: "Cloud Backend Systems", desc: "Scalable databases, microservices, and secure cloud architectures." },
-  { icon: "🎯", label: "Admin Control Panels", desc: "Role-based operational panels for managing users, data, and devices." },
-  { icon: "🛒", label: "E-commerce & Marketplace", desc: "B2C and B2B platforms with catalog, cart, and fulfillment logic." },
-  { icon: "📡", label: "Device-Cloud Middleware", desc: "Telemetry pipelines that connect field hardware to cloud software." },
+  { icon: Layout, label: "Custom Web Applications", desc: "Modern, scalable web apps built to match your workflows and users." },
+  { icon: Gauge, label: "IoT Dashboards", desc: "Real-time device monitoring portals with live data, alerts & control." },
+  { icon: Settings2, label: "Device Management Portals", desc: "Manage fleets of devices, firmware, health, and events from one place." },
+  { icon: CreditCard, label: "Payment-Enabled Systems", desc: "UPI, QR, card, wallet-integrated transaction platforms." },
+  { icon: Workflow, label: "Enterprise Workflow Systems", desc: "Operational management platforms for complex business processes." },
+  { icon: Layers, label: "SaaS-Style Platforms", desc: "Multi-tenant platforms built for subscription and operational scale." },
+  { icon: BarChart3, label: "Analytics & Reporting", desc: "Business intelligence dashboards with deep data visibility." },
+  { icon: Webhook, label: "API-First Integrations", desc: "Connect devices, third-party services, and data pipelines." },
+  { icon: Cloud, label: "Cloud Backend Systems", desc: "Scalable databases, microservices, and secure cloud architectures." },
+  { icon: ShieldCheck, label: "Admin Control Panels", desc: "Role-based operational panels for managing users, data, and devices." },
+  { icon: ShoppingBag, label: "E-commerce & Marketplace", desc: "B2C and B2B platforms with catalog, cart, and fulfillment logic." },
+  { icon: Radio, label: "Device-Cloud Middleware", desc: "Telemetry pipelines that connect field hardware to cloud software." },
 ];
 
 const portfolio = [
@@ -172,7 +190,9 @@ export default function SoftwarePage() {
           <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once:true }} className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {whatWeBuild.map((item) => (
               <motion.div key={item.label} variants={cardVariants} whileHover={{ y:-6, boxShadow:"0 16px 48px rgba(124,58,237,0.1)" }} className="group rounded-3xl border border-slate-100 bg-white p-6 shadow-sm transition-all">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-2xl">{item.icon}</div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white">
+                  <item.icon size={24} strokeWidth={2.5} />
+                </div>
                 <h3 className="mt-4 font-bold text-slate-900">{item.label}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-500">{item.desc}</p>
               </motion.div>
@@ -233,7 +253,7 @@ export default function SoftwarePage() {
               <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once:true }} className="grid grid-cols-2 gap-3">
                 {techStack.map(t => (
                   <motion.div key={t.label} variants={cardVariants} whileHover={{ backgroundColor:"rgba(255,255,255,0.08)" }} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 transition-all">
-                    <span className="text-xl">{t.icon}</span>
+                    <t.icon size={20} className="text-blue-300" strokeWidth={2.5} />
                     <span className="text-sm font-medium text-slate-200">{t.label}</span>
                   </motion.div>
                 ))}

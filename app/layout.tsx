@@ -27,9 +27,9 @@ const navItems = [
       { label: "Sigmatronics Software", href: "/software" },
       { label: "Sigmatronics Solutions", href: "/solutions" },
       { label: "Sigmatronics Consultancy", href: "/consultancy" },
+      { label: "Sigmatronics Learnings", href: "/learnings" },
     ]
   },
-  { label: "Sigmatronics Learnings", href: "/learnings" },
   { label: "Industries", href: "/industries" },
   { label: "Products & Platforms", href: "/products" },
 ];

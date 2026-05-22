@@ -1,7 +1,12 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import AnimatedProductCards from "./AnimatedProductCards";
+import { 
+  Layout, 
+  ShieldCheck, 
+  BarChart, 
+  Maximize 
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Products | Sigmatronics",
@@ -10,28 +15,34 @@ export const metadata: Metadata = {
 
 const productCards = [
   {
-    title: "SigmaCore Platform",
-    description: "A modular software foundation for industrial data, device management, and analytics.",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    features: ["Device onboarding", "Analytics engine", "Cloud-ready"],
+    title: "Cloth Bag Vending Machine",
+    description: "Automated dispensing solution for eco-friendly cloth bags, designed to reduce plastic waste.",
+    image: "/Cloth bag vending machine_product.jpg",
+    features: ["Eco-friendly", "Automated dispensing", "Smart payments"],
   },
   {
-    title: "Nexus Edge Gateway",
-    description: "A secure connected gateway for sensors, controllers, and remote operations.",
-    image: "https://images.unsplash.com/photo-1498050108023-8a1d7a8ce091?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    features: ["Multi-protocol", "Secure VPN", "OTA updates"],
+    title: "Mask Mitra",
+    description: "A smart vending machine for face masks, providing quick and hygienic access in public spaces.",
+    image: "/Mask Mitra_Product .jpg",
+    features: ["Hygienic access", "Contactless option", "Compact design"],
   },
   {
-    title: "Pulse Analytics Suite",
-    description: "Operational dashboards, alerts, and insights for real-time decision support.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    features: ["Insights", "Alerts", "Collaboration"],
+    title: "Solar Sync-Lite",
+    description: "Smart solar-powered lighting and synchronization system for energy-efficient illumination.",
+    image: "/Solar sync-lite_product.jpeg",
+    features: ["Solar-powered", "Energy efficient", "Smart sync"],
   },
   {
-    title: "Aura Security Mesh",
-    description: "Secure device networking, encrypted connectivity, and data protection for IoT deployments.",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    features: ["Encryption", "Mesh routing", "Access control"],
+    title: "Wins Vending Machine",
+    description: "Automated sanitary napkin vending machine providing 24/7 access to essential hygiene products.",
+    image: "/Wins (sanitary napkings vending machine)_Product.jpg",
+    features: ["24/7 Access", "Reliable dispensing", "Hygiene focus"],
+  },
+  {
+    title: "IoT Edge Hardware",
+    description: "Industrial-grade hardware for IoT applications, remote monitoring, and sensor integration.",
+    image: "/iothardware_Product.jpeg",
+    features: ["Industrial grade", "Remote monitoring", "Sensor ready"],
   },
 ];
 
@@ -64,13 +75,14 @@ export default function ProductsPage() {
             <p className="text-sm uppercase tracking-[0.32em] text-cyan-700">Platform focus</p>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
               {[
-                "Modular architecture",
-                "Secure connectivity",
-                "Device-centric analytics",
-                "Scalable deployment",
+                { label: "Modular architecture", icon: Layout },
+                { label: "Secure connectivity", icon: ShieldCheck },
+                { label: "Device-centric analytics", icon: BarChart },
+                { label: "Scalable deployment", icon: Maximize },
               ].map((item) => (
-                <div key={item} className="rounded-3xl border border-slate-200 bg-slate-50 px-4 py-4 text-sm text-slate-700">
-                  {item}
+                <div key={item.label} className="flex items-center gap-3 rounded-3xl border border-slate-200 bg-slate-50 px-5 py-4 text-sm font-medium text-slate-700">
+                  <item.icon size={18} className="text-cyan-600" />
+                  {item.label}
                 </div>
               ))}
             </div>

@@ -3,38 +3,64 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { 
+  Cpu, 
+  CircuitBoard, 
+  Radio, 
+  Activity, 
+  Code, 
+  Settings, 
+  Cloud, 
+  Layout, 
+  Layers, 
+  RefreshCw, 
+  Bug, 
+  Users, 
+  Building, 
+  Hammer, 
+  Microscope, 
+  UserCheck, 
+  Zap, 
+  Rocket, 
+  BookOpen, 
+  HardHat, 
+  Globe, 
+  Brain, 
+  Milestone, 
+  Trophy 
+} from "lucide-react";
 
 const domains = [
-  { icon: "🔌", label: "Embedded Systems Fundamentals", desc: "Hardware thinking, microcontroller concepts, and real device logic." },
-  { icon: "🛠️", label: "PCB & Electronics Product Design", desc: "From schematic to PCB layout and manufacturing considerations." },
-  { icon: "📡", label: "IoT Device Architecture", desc: "Building connected systems, protocols, and cloud integration." },
-  { icon: "📟", label: "Sensor Integration & Communication", desc: "Working with sensors, interfaces, and wireless modules." },
-  { icon: "⚙️", label: "Firmware & Device Logic", desc: "Writing embedded firmware for real product behavior." },
-  { icon: "🏭", label: "Industrial Automation Concepts", desc: "Control systems, PLCs, and industrial field devices." },
-  { icon: "☁️", label: "Cloud-Connected Device Systems", desc: "MQTT, APIs, dashboards, and telemetry pipelines." },
-  { icon: "🌐", label: "Web Platform Development", desc: "Full-stack concepts for modern SaaS and IoT portals." },
-  { icon: "📊", label: "Full-Stack Software Exposure", desc: "Frontend, backend, databases, and deployment basics." },
-  { icon: "🔄", label: "Product Lifecycle Understanding", desc: "From ideation, design, prototyping to deployment." },
-  { icon: "🐛", label: "Real-World Debugging & Deployment", desc: "Practical problem-solving on real hardware and systems." },
-  { icon: "🤝", label: "Cross-Functional Innovation Projects", desc: "Collaborative builds combining hardware and software." },
+  { icon: Cpu, label: "Embedded Systems Fundamentals", desc: "Hardware thinking, microcontroller concepts, and real device logic." },
+  { icon: CircuitBoard, label: "PCB & Electronics Product Design", desc: "From schematic to PCB layout and manufacturing considerations." },
+  { icon: Radio, label: "IoT Device Architecture", desc: "Building connected systems, protocols, and cloud integration." },
+  { icon: Activity, label: "Sensor Integration & Communication", desc: "Working with sensors, interfaces, and wireless modules." },
+  { icon: Code, label: "Firmware & Device Logic", desc: "Writing embedded firmware for real product behavior." },
+  { icon: Settings, label: "Industrial Automation Concepts", desc: "Control systems, PLCs, and industrial field devices." },
+  { icon: Cloud, label: "Cloud-Connected Device Systems", desc: "MQTT, APIs, dashboards, and telemetry pipelines." },
+  { icon: Layout, label: "Web Platform Development", desc: "Full-stack concepts for modern SaaS and IoT portals." },
+  { icon: Layers, label: "Full-Stack Software Exposure", desc: "Frontend, backend, databases, and deployment basics." },
+  { icon: RefreshCw, label: "Product Lifecycle Understanding", desc: "From ideation, design, prototyping to deployment." },
+  { icon: Bug, label: "Real-World Debugging & Deployment", desc: "Practical problem-solving on real hardware and systems." },
+  { icon: Users, label: "Cross-Functional Innovation Projects", desc: "Collaborative builds combining hardware and software." },
 ];
 
 const formats = [
-  { icon: "🏢", title: "Internship Programs", desc: "Structured, industry-grade internships with real project exposure." },
-  { icon: "🔨", title: "Project-Based Learning", desc: "Hands-on learning through actual product and solution builds." },
-  { icon: "🔬", title: "Research Support Initiatives", desc: "Support for academic and innovation research projects." },
-  { icon: "🧑‍🏫", title: "Industry Mentorship", desc: "One-on-one guidance from experienced technology professionals." },
-  { icon: "⚡", title: "Innovation Bootcamps", desc: "Intensive, focused programs on specific technology domains." },
-  { icon: "🚀", title: "Startup Exposure Programs", desc: "Understanding how technology companies operate and build products." },
-  { icon: "📖", title: "Applied Learning Modules", desc: "Structured content aligned with industry-relevant skills." },
-  { icon: "🏗️", title: "Collaborative Build Opportunities", desc: "Work alongside Sigmatronics teams on real-world projects." },
+  { icon: Building, title: "Internship Programs", desc: "Structured, industry-grade internships with real project exposure." },
+  { icon: Hammer, title: "Project-Based Learning", desc: "Hands-on learning through actual product and solution builds." },
+  { icon: Microscope, title: "Research Support Initiatives", desc: "Support for academic and innovation research projects." },
+  { icon: UserCheck, title: "Industry Mentorship", desc: "One-on-one guidance from experienced technology professionals." },
+  { icon: Zap, title: "Innovation Bootcamps", desc: "Intensive, focused programs on specific technology domains." },
+  { icon: Rocket, title: "Startup Exposure Programs", desc: "Understanding how technology companies operate and build products." },
+  { icon: BookOpen, title: "Applied Learning Modules", desc: "Structured content aligned with industry-relevant skills." },
+  { icon: HardHat, title: "Collaborative Build Opportunities", desc: "Work alongside Sigmatronics teams on real-world projects." },
 ];
 
 const whyPoints = [
-  { icon: "🌍", title: "Real-World Projects", desc: "Work on actual hardware and software systems — not simulated or theoretical exercises." },
-  { icon: "🧠", title: "Industry-Led Mentorship", desc: "Learn directly from professionals who build and deploy technology systems every day." },
-  { icon: "🛤️", title: "Clear Career Pathways", desc: "Exposure across multiple domains — embedded, IoT, software, automation — opens doors to diverse roles." },
-  { icon: "🏆", title: "Recognized Experience", desc: "Build a portfolio of real work that demonstrates skills to future employers or startup investors." },
+  { icon: Globe, title: "Real-World Projects", desc: "Work on actual hardware and software systems — not simulated or theoretical exercises." },
+  { icon: Brain, title: "Industry-Led Mentorship", desc: "Learn directly from professionals who build and deploy technology systems every day." },
+  { icon: Milestone, title: "Clear Career Pathways", desc: "Exposure across multiple domains — embedded, IoT, software, automation — opens doors to diverse roles." },
+  { icon: Trophy, title: "Recognized Experience", desc: "Build a portfolio of real work that demonstrates skills to future employers or startup investors." },
 ];
 
 const containerVariants = { hidden: {}, visible: { transition: { staggerChildren: 0.08 } } };
@@ -86,7 +112,9 @@ export default function LearningsPage() {
             <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               {whyPoints.map(p => (
                 <motion.div key={p.title} variants={cardVariants} className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-                  <div className="text-3xl">{p.icon}</div>
+                  <div className="text-blue-300">
+                    <p.icon size={32} strokeWidth={2} />
+                  </div>
                   <h3 className="mt-4 font-bold text-white">{p.title}</h3>
                   <p className="mt-2 text-sm text-slate-400">{p.desc}</p>
                 </motion.div>
@@ -105,7 +133,9 @@ export default function LearningsPage() {
           <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {domains.map((d, i) => (
               <motion.div key={d.label} variants={cardVariants} whileHover={{ y: -6, boxShadow: "0 16px 48px rgba(0,0,0,0.1)" }} className="group rounded-3xl border border-slate-100 bg-white p-6 shadow-sm transition-all">
-                <div className={`flex h-12 w-12 items-center justify-center rounded-2xl text-2xl ${i % 3 === 0 ? "bg-orange-50" : i % 3 === 1 ? "bg-blue-50" : "bg-cyan-50"}`}>{d.icon}</div>
+                <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${i % 3 === 0 ? "bg-orange-50 text-orange-600" : i % 3 === 1 ? "bg-blue-50 text-blue-600" : "bg-cyan-50 text-cyan-600"}`}>
+                  <d.icon size={24} strokeWidth={2.5} />
+                </div>
                 <h3 className="mt-4 font-bold text-slate-900">{d.label}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-500">{d.desc}</p>
               </motion.div>
@@ -124,7 +154,9 @@ export default function LearningsPage() {
             <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {formats.map(f => (
                 <motion.div key={f.title} variants={cardVariants} whileHover={{ y: -5, boxShadow: "0 16px 40px rgba(0,0,0,0.1)" }} className="rounded-3xl border border-white bg-white p-7 text-center shadow-md transition-all">
-                  <div className="text-4xl">{f.icon}</div>
+                  <div className="flex justify-center text-blue-600">
+                    <f.icon size={40} strokeWidth={1.5} />
+                  </div>
                   <h3 className="mt-5 font-bold text-slate-900">{f.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-500">{f.desc}</p>
                 </motion.div>

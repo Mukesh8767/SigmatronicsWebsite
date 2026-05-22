@@ -3,23 +3,38 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { 
+  Lightbulb, 
+  Settings, 
+  Target, 
+  TrendingUp, 
+  Handshake, 
+  ShieldCheck, 
+  BookOpen, 
+  Cpu, 
+  Code, 
+  Rocket, 
+  Brain, 
+  GraduationCap, 
+  Globe 
+} from "lucide-react";
 
 const values = [
-  { icon: "💡", title: "Innovation with Purpose", desc: "Every product we build starts with a real problem. We innovate not for novelty, but for meaningful, measurable impact." },
-  { icon: "⚙️", title: "Engineering Excellence", desc: "From PCB to cloud, our work is grounded in deep engineering discipline — built to last and designed to scale." },
-  { icon: "🎯", title: "Practical Execution", desc: "We don't just conceptualize. We prototype, test, deploy, and iterate until the solution works in the real world." },
-  { icon: "📈", title: "Scalable Thinking", desc: "Every system we design is built with tomorrow in mind — ready to grow from a pilot to enterprise-scale deployment." },
-  { icon: "🤝", title: "Customer-Centric Problem Solving", desc: "We listen first. Every solution is shaped by the client's actual workflow, constraints, and business goals." },
-  { icon: "🔒", title: "Integrity in Delivery", desc: "We commit to honest timelines, transparent processes, and systems that work as promised — every single time." },
-  { icon: "📚", title: "Continuous Learning & Collaboration", desc: "Technology evolves fast. We stay ahead through relentless learning, cross-domain collaboration, and open knowledge sharing." },
+  { icon: Lightbulb, title: "Innovation with Purpose", desc: "Every product we build starts with a real problem. We innovate not for novelty, but for meaningful, measurable impact." },
+  { icon: Settings, title: "Engineering Excellence", desc: "From PCB to cloud, our work is grounded in deep engineering discipline — built to last and designed to scale." },
+  { icon: Target, title: "Practical Execution", desc: "We don't just conceptualize. We prototype, test, deploy, and iterate until the solution works in the real world." },
+  { icon: TrendingUp, title: "Scalable Thinking", desc: "Every system we design is built with tomorrow in mind — ready to grow from a pilot to enterprise-scale deployment." },
+  { icon: Handshake, title: "Customer-Centric Problem Solving", desc: "We listen first. Every solution is shaped by the client's actual workflow, constraints, and business goals." },
+  { icon: ShieldCheck, title: "Integrity in Delivery", desc: "We commit to honest timelines, transparent processes, and systems that work as promised — every single time." },
+  { icon: BookOpen, title: "Continuous Learning & Collaboration", desc: "Technology evolves fast. We stay ahead through relentless learning, cross-domain collaboration, and open knowledge sharing." },
 ];
 
 const verticals = [
-  { icon: "🔬", label: "Sigmatronics Hardware", desc: "Embedded systems, IoT devices, industrial electronics & custom PCB design.", href: "/hardware" },
-  { icon: "💻", label: "Sigmatronics Software", desc: "Custom platforms, IoT dashboards, web apps & digital products.", href: "/software" },
-  { icon: "🎯", label: "Sigmatronics Solutions", desc: "End-to-end integrated hardware + software + deployment.", href: "/solutions" },
-  { icon: "🧠", label: "Sigmatronics Consultancy", desc: "Strategic advisory, product guidance & partner-led execution.", href: "/consultancy" },
-  { icon: "🎓", label: "Sigmatronics Learnings", desc: "Industry-driven programs for the next generation of innovators.", href: "/learnings" },
+  { icon: Cpu, label: "Sigmatronics Hardware", desc: "Embedded systems, IoT devices, industrial electronics & custom PCB design.", href: "/hardware" },
+  { icon: Code, label: "Sigmatronics Software", desc: "Custom platforms, IoT dashboards, web apps & digital products.", href: "/software" },
+  { icon: Rocket, label: "Sigmatronics Solutions", desc: "End-to-end integrated hardware + software + deployment.", href: "/solutions" },
+  { icon: Brain, label: "Sigmatronics Consultancy", desc: "Strategic advisory, product guidance & partner-led execution.", href: "/consultancy" },
+  { icon: GraduationCap, label: "Sigmatronics Learnings", desc: "Industry-driven programs for the next generation of innovators.", href: "/learnings" },
 ];
 
 const timeline = [
@@ -133,7 +148,9 @@ export default function AboutPage() {
         <section className="mt-20 grid gap-6 lg:grid-cols-2">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="overflow-hidden rounded-[32px] border border-cyan-100 bg-gradient-to-br from-cyan-50 to-blue-50 p-10 shadow-lg">
             <div className="flex items-center gap-4">
-              <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-100 text-4xl shadow-sm">🎯</span>
+              <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-600 shadow-sm">
+                <Target size={32} strokeWidth={2.5} />
+              </span>
               <p className="text-xs font-bold uppercase tracking-widest text-cyan-700">Our Mission</p>
             </div>
             <h2 className="mt-6 text-2xl font-bold leading-snug text-slate-900 sm:text-3xl">
@@ -143,7 +160,9 @@ export default function AboutPage() {
 
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="overflow-hidden rounded-[32px] border border-orange-100 bg-gradient-to-br from-orange-50 to-amber-50 p-10 shadow-lg">
             <div className="flex items-center gap-4">
-              <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-100 text-4xl shadow-sm">🌍</span>
+              <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-100 text-orange-600 shadow-sm">
+                <Globe size={32} strokeWidth={2.5} />
+              </span>
               <p className="text-xs font-bold uppercase tracking-widest text-orange-700">Our Vision</p>
             </div>
             <h2 className="mt-6 text-2xl font-bold leading-snug text-slate-900 sm:text-3xl">
@@ -162,7 +181,9 @@ export default function AboutPage() {
           <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {values.map((v, i) => (
               <motion.div key={v.title} variants={cardVariants} whileHover={{ y: -5, boxShadow: "0 20px 50px rgba(0,0,0,0.08)" }} className="group rounded-3xl border border-slate-100 bg-white p-8 shadow-sm transition-all">
-                <div className={`flex h-14 w-14 items-center justify-center rounded-2xl text-3xl shadow-sm ${i % 2 === 0 ? "bg-blue-50" : "bg-orange-50"}`}>{v.icon}</div>
+                <div className={`flex h-14 w-14 items-center justify-center rounded-2xl shadow-sm ${i % 2 === 0 ? "bg-blue-50 text-blue-600" : "bg-orange-50 text-orange-600"}`}>
+                  <v.icon size={28} strokeWidth={2.5} />
+                </div>
                 <h3 className="mt-5 text-lg font-bold text-slate-900">{v.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-500">{v.desc}</p>
               </motion.div>
@@ -181,7 +202,9 @@ export default function AboutPage() {
             <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
               {verticals.map((v, i) => (
                 <motion.div key={v.label} variants={cardVariants} whileHover={{ y: -6, boxShadow: "0 16px 48px rgba(0,0,0,0.1)" }} className="group flex flex-col items-center rounded-3xl border border-white bg-white p-8 text-center shadow-md transition-all">
-                  <div className={`flex h-16 w-16 items-center justify-center rounded-2xl text-3xl shadow-sm ${i % 2 === 0 ? "bg-blue-50" : "bg-orange-50"}`}>{v.icon}</div>
+                  <div className={`flex h-16 w-16 items-center justify-center rounded-2xl shadow-sm ${i % 2 === 0 ? "bg-blue-50 text-blue-600" : "bg-orange-50 text-orange-600"}`}>
+                    <v.icon size={32} strokeWidth={2} />
+                  </div>
                   <h3 className="mt-5 font-bold text-slate-900">{v.label}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-500">{v.desc}</p>
                   <Link href={v.href} className="mt-4 text-sm font-semibold text-cyan-700 transition hover:text-cyan-900">
