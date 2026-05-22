@@ -253,7 +253,7 @@ export default function SoftwarePage() {
               <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once:true }} className="grid grid-cols-2 gap-3">
                 {techStack.map(t => (
                   <motion.div key={t.label} variants={cardVariants} whileHover={{ backgroundColor:"rgba(255,255,255,0.08)" }} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 transition-all">
-                    <t.icon size={20} className="text-blue-300" strokeWidth={2.5} />
+                    <span className="text-xl">{t.icon}</span>
                     <span className="text-sm font-medium text-slate-200">{t.label}</span>
                   </motion.div>
                 ))}

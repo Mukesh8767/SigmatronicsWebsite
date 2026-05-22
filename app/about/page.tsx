@@ -91,7 +91,7 @@ export default function AboutPage() {
               <div className="grid grid-cols-2 gap-4">
                 {[{ v: "5+", l: "Technology Verticals" }, { v: "9+", l: "Hardware Domains" }, { v: "5+", l: "Flagship Platforms" }, { v: "Full-Stack", l: "Innovation Capability" }].map(s => (
                   <div key={s.l} className="rounded-2xl border border-cyan-100 bg-white p-5 text-center shadow-sm">
-                    <p className="text-2xl font-black text-slate-900">{s.value || s.v}</p>
+                    <p className="text-2xl font-black text-slate-900">{s.v}</p>
                     <p className="mt-1 text-xs font-medium text-slate-500">{s.l}</p>
                   </div>
                 ))}
